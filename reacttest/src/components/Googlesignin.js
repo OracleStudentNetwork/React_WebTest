@@ -3,6 +3,9 @@ import GoogleLogin from 'react-google-login'
 
 class Googlesignin extends React.Component {
     render(){
+        const responseGoogle = response => {
+            console.log(response);
+        }
         return(<div className = "googlelogin">
             <h1>Login with Google </h1>
             <GoogleLogin
