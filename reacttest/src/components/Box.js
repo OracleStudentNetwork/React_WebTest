@@ -1,6 +1,6 @@
 import React from "react"
 import {Form, Button} from 'react-bootstrap'
-
+import Googlesignin from './Googlesignin'
 // class Box extends React.Component {
 //     constructor() {
 //       super();
@@ -70,6 +70,7 @@ class Box extends React.Component{
         Submit
     </Button>
     </Form>
+    <Googlesignin/>
         </div>
         )
     }
