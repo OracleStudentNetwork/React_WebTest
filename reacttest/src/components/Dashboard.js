@@ -1,8 +1,9 @@
 import React from "react"
-import Paper from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper'
 import {makeStyles} from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Topics from './Topics'
+import Chatbox from './Chatbox'
 const useStyles = makeStyles((theme) => ({
     root: {
       margin: '50px',
@@ -19,6 +20,7 @@ export default function Dashboard(){
     const classes = useStyles();
 
         return(<div>
+            
             <Paper className = {classes.root}>
             <Typography variant= "h4" component="h4">
                 OSN chat app
@@ -26,8 +28,10 @@ export default function Dashboard(){
             <Typography component="h5">
                 Topic
             </Typography>
+            
             <div className = {classes.flex}>
-            </Topics>
+            <Topics/>
+            <Chatbox/>
             </div>
 
             </Paper>

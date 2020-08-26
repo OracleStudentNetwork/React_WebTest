@@ -1,0 +1,14 @@
+.topicsWindow{
+    width: 30%;
+    border-color: black
+}
+.chatWindow{
+    width: 70%;
+    height: 300px;
+}
+.chatBox{
+    width: 85%;
+}
+.button{
+    width: 15%;
+}
