@@ -5,6 +5,7 @@ class Googlesignin extends React.Component {
     render(){
         const responseGoogle = response => {
             console.log(response.wc.id_token);
+            console.log(response)
             // make graphql post with googleId
             fetch("http://api.osn-reo.org", {
                 "method":"POST",
@@ -16,7 +17,7 @@ class Googlesignin extends React.Component {
                 }).then(res=>{});
         }
         return(<div className = "googlelogin">
-            <h1>Login with Google </h1>
+            {/* <h1>Login with Google </h1> */}
             <GoogleLogin
                 clientId="136122883712-eue6mcej6psh8meqkcemd8sklr277544.apps.googleusercontent.com"
                 buttonText="Login with Google"
