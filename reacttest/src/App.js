@@ -8,6 +8,8 @@ import {
     Link
   } from "react-router-dom";
 import Login from "./components/Login"
+import Store from './components/Store'
+
 class App extends React.Component{
     render(){
         return(
@@ -15,7 +17,9 @@ class App extends React.Component{
             <div>
                 <Navigationbar/>
                 <Switch>
+                    <Store>
                     <Route exact path = "/" component = {Dashboard}/>
+                    </Store>
                     <Route exact path = "/login" component = {Login}/>
                 </Switch>
             </div>

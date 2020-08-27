@@ -1,29 +1,22 @@
-import React from 'react'
-import Chip from '@material-ui/core/Chip';
-
-import Typography from '@material-ui/core/Typography'
+import React from "react"
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 let flex = {
-    display: "flex"
-}
-let chip
-class Chatbox extends React.Component{
-    render(){
-        return(
-            <div className = "chatWindow">
-                    {
-                        [{from: 'user', msg: 'hello'}].map((chat,i) => (
-                            <div style = {flex} key={i}>
-                                <Chip label = {chat.from} className = {chip}/>
-                                <Typography variant = 'p'>{chat.msg}</Typography>
+    display: "flex",
 
-                            </div>
-                        ))
-                    }
-            
-            </div>
-        )
-    }
 }
 
-export default Chatbox;
+
+export default function Chatbox(){
+    const [textValue, changeTextValue] = React.useState('')
+    return(<div style = {flex}>
+        <TextField 
+        className = "chatBox" label="Send a Chat" value = {textValue} onChange ={ e => changeTextValue(e.target.value)}/>
+        <Button variant="contained" color="primary">
+        Send
+        </Button>
+        
+        
+        </div>)
+}
