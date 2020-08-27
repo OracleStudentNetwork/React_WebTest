@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 
 let flex = {
     display: "flex",
+    width: "100%"
 
 }
 
@@ -11,7 +12,7 @@ let flex = {
 export default function Chatbox(){
     const [textValue, changeTextValue] = React.useState('')
     return(<div style = {flex}>
-        <TextField 
+        <TextField style = {flex}
         className = "chatBox" label="Send a Chat" value = {textValue} onChange ={ e => changeTextValue(e.target.value)}/>
         <Button variant="contained" color="primary">
         Send

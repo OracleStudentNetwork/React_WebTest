@@ -2,12 +2,13 @@ import React from "react"
 import Paper from '@material-ui/core/Paper'
 import {makeStyles} from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import Chatbox from './Chatbox'
 import {CTX} from './Store'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 const useStyles = makeStyles((theme) => ({
     root: {
       margin: '50px',
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     flex: {
         display: 'flex',
 
-    },
+    },  
     chip: {
     },
     topicsWindow:{
@@ -44,10 +45,11 @@ export default function Dashboard(){
     const classes = useStyles();
     
 
-    const [allChats] = React.useContext(CTX);
+    const {allChats, sendChatAction, user} = React.useContext(CTX);
     const topics = Object.keys(allChats)
     console.log([allChats])
-    const [activeTopic, changeActiveTopic] = React.useState(topics)
+    const [activeTopic, changeActiveTopic] = React.useState("general")
+    const [textValue, changeTextValue] = React.useState('')
 
         return(<div>
             
@@ -58,7 +60,7 @@ export default function Dashboard(){
             <Typography component="h5">
                 {activeTopic}
             </Typography>
-            
+
             <div className = {classes.flex}>
                 <div className = {classes.topicsWindow}>
                 <List>
@@ -86,10 +88,27 @@ export default function Dashboard(){
          
             </div>
             
+
             <div className = {classes.flex}>
-            <Chatbox/>
+                <TextField 
+                className = {classes.chatBox}
+                label="Send a Chat" 
+                value = {textValue} 
+                onChange ={ e => changeTextValue(e.target.value)}
+                />
+                <Button
+                variant="contained" 
+                color="primary"
+                className = {classes.Button}
+                onClick = { ()=> {
+                    sendChatAction({from:user, msg: textValue, topic: activeTopic});
+                    changeTextValue('');
+                }
+                    }>
+                
+                Send
+                </Button>
             </div>
             </Paper>
         </div>)
-    
 }
