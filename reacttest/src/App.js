@@ -16,10 +16,12 @@ class App extends React.Component{
             <Router>
             <div>
                 <Navigationbar/>
-                <Switch>
+                <Switch>       
+                    <Route exact path = "/">
                     <Store>
-                    <Route exact path = "/" component = {Dashboard}/>
+                        <Dashboard/>
                     </Store>
+                    </Route>
                     <Route exact path = "/login" component = {Login}/>
                 </Switch>
             </div>
